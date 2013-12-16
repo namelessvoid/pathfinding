@@ -6,7 +6,7 @@ class Square;
 class Board
 {
 	public:
-		Board(int height, int width);
+		Board(int width, int height);
 		~Board();
 
 	private:
