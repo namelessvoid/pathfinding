@@ -2,6 +2,7 @@
 #define BOARDRENDERER_HPP
 
 #include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/Color.hpp>
 // #include <SFML/Graphics/RenderTarget.hpp>
 // #include <SFML/Graphics/RenderStates.hpp>
 
@@ -16,6 +17,11 @@ class BoardRenderer : public sf::Drawable
 
 	private:
 		Board& board;
+
+		sf::Color emptycolor;
+		sf::Color wallcolor;
+		sf::Color startcolor;
+		sf::Color endcolor;
 };
 
 #endif
