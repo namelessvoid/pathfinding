@@ -2,6 +2,7 @@
 #include <SFML/Window/Event.hpp>
 
 #include "board.hpp"
+#include "boardrenderer.hpp"
 
 int main(int arg, char* argv[])
 {
@@ -9,6 +10,8 @@ int main(int arg, char* argv[])
 
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Pathfinding Visualizer", sf::Style::Titlebar | sf::Style::Close);
 	window.setVerticalSyncEnabled(true);
+
+	BoardRenderer boardrenderer(board);
 
 	while (window.isOpen())
 	{
@@ -20,6 +23,11 @@ int main(int arg, char* argv[])
 	        if (event.type == sf::Event::Closed)
 	            window.close();
 	    }
+
+	    // Rendering
+	    window.clear(sf::Color::Black);
+	    window.draw(boardrenderer);
+	    window.display();
 	}
 
 	return 0;
