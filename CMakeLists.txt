@@ -13,6 +13,7 @@ endif(SFML_FOUND)
 set(SOURCE
 	src/square.cpp
 	src/board.cpp
+	src/boardrenderer.cpp
 )
 
 include_directories(
