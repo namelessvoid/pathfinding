@@ -15,7 +15,8 @@ class Square
 		Square();
 
 		void setContent(Content content);
-		Content getContent();
+		Content getContent() const;
+
 	private:
 		Content content;
 };

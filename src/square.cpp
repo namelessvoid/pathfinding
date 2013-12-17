@@ -9,7 +9,7 @@ void Square::setContent(Square::Content content)
 	this->content = content;
 }
 
-Square::Content Square::getContent()
+Square::Content Square::getContent() const
 {
 	return content;
 }
