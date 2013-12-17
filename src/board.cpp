@@ -3,6 +3,8 @@
 #include "square.hpp"
 
 Board::Board(int width, int height)
+	:	width(width),
+		height(height)
 {
 	squares = new Square[width * height];
 }
