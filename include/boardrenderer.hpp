@@ -15,7 +15,7 @@ class BoardRenderer : public sf::Drawable
 		void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 	private:
-		const Board& board;
+		Board& board;
 };
 
 #endif
