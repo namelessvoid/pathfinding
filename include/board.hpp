@@ -11,6 +11,9 @@ class Board
 
 		Square* getSquare(int x, int y);
 
+		int getWidth() const;
+		int getHeight() const;
+
 	private:
 		int width;
 		int height;

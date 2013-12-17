@@ -19,3 +19,13 @@ Square* Board::getSquare(int x, int y)
 
 	return &squares[y * height + x];
 }
+
+int Board::getWidth() const
+{
+	return width;
+}
+
+int Board::getHeight() const
+{
+	return height;
+}
