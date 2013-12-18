@@ -1,5 +1,6 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/View.hpp>
 
 #include "board.hpp"
 #include "boardrenderer.hpp"
@@ -10,6 +11,8 @@ int main(int arg, char* argv[])
 
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Pathfinding Visualizer", sf::Style::Titlebar | sf::Style::Close);
 	window.setVerticalSyncEnabled(true);
+
+	window.setView(sf::View(sf::FloatRect(0, 0, 800, 600)));
 
 	BoardRenderer boardrenderer(board);
 
@@ -22,6 +25,13 @@ int main(int arg, char* argv[])
 	        // "close requested" event: we close the window
 	        if (event.type == sf::Event::Closed)
 	            window.close();
+
+	        else if (event.type == sf::Event::Resized)
+	        {
+	            // update the view to the new size of the window
+	            sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
+	            window.setView(sf::View(visibleArea));
+	        }
 	    }
 
 	    // Rendering
