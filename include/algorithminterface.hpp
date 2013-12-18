@@ -1,14 +1,16 @@
-#ifndef ALGORITHM_INTERFACE
-#define ALGORITHM_INTERFACE
+#ifndef ALGORITHM_INTERFACE_HPP
+#define ALGORITHM_INTERFACE_HPP
 
 #include "path.hpp"
+
+class Board;
 
 class AlgorithmInterface
 {
 	public:
 		virtual void setBoard(Board* board);
-		virtual void setStartPoint(int x, int y) = 0;
-		virtual void setEndPont(int x, int y) = 0;
+		virtual void setStart(int x, int y) = 0;
+		virtual void setEnd(int x, int y) = 0;
 
 		virtual Path* getPath() = 0;
 };
