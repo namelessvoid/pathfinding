@@ -22,7 +22,7 @@ void BoardRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) cons
 	int boardwidth = board.getWidth();
 	int boardheight = board.getHeight();
 
-	float squaredimension = boardwidth > boardheight
+	float squaredimension = targetsize.y > targetsize.x
 		? targetsize.x / boardwidth : targetsize.y / boardheight;
 
 	sf::RectangleShape shape(sf::Vector2f(squaredimension, squaredimension));
