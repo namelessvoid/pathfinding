@@ -14,6 +14,7 @@ set(SOURCE
 	src/square.cpp
 	src/board.cpp
 	src/boardrenderer.cpp
+	src/astar/node.cpp
 )
 
 include_directories(
