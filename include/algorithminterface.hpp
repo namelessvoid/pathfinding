@@ -8,7 +8,7 @@ class Board;
 class AlgorithmInterface
 {
 	public:
-		virtual void setBoard(Board* board);
+		virtual void setBoard(Board* board) = 0;
 		virtual void setStart(int x, int y) = 0;
 		virtual void setEnd(int x, int y) = 0;
 
