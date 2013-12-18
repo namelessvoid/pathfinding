@@ -6,6 +6,7 @@
 class AlgorithmInterface
 {
 	public:
+		virtual void setBoard(Board* board);
 		virtual void setStartPoint(int x, int y) = 0;
 		virtual void setEndPont(int x, int y) = 0;
 
