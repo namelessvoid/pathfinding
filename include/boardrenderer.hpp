@@ -3,8 +3,6 @@
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Color.hpp>
-// #include <SFML/Graphics/RenderTarget.hpp>
-// #include <SFML/Graphics/RenderStates.hpp>
 
 namespace pathfinding
 {
