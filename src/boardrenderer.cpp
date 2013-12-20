@@ -7,16 +7,23 @@
 
 #include "board.hpp"
 #include "square.hpp"
+#include "path.hpp"
 
 namespace pathfinding
 {
 	BoardRenderer::BoardRenderer(Board& board)
 		:	board(board),
+			path(0),
 			emptycolor(81, 149, 81),
 			wallcolor(97, 97, 97),
 			startcolor(76, 76, 187),
 			endcolor(223, 0, 0)
 	{}
+
+	void BoardRenderer::setPath(Path* path)
+	{
+		this->path = path;
+	}
 
 	void BoardRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{

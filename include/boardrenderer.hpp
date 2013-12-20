@@ -9,16 +9,21 @@
 namespace pathfinding
 {
 	class Board;
+	class Path;
 
 	class BoardRenderer : public sf::Drawable
 	{
 		public:
 			BoardRenderer(Board& board);
 
+			void setPath(Path* path);
+
 			void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 		private:
 			Board& board;
+
+			Path* path;
 
 			sf::Color emptycolor;
 			sf::Color wallcolor;
