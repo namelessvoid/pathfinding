@@ -25,3 +25,8 @@ int Coordinates::getY() const
 {
 	return coordinates.second;
 }
+
+bool Coordinates::operator==(const Coordinates& rhs)
+{
+	return (getX() == rhs.getX() && getY() == rhs.getY());
+}

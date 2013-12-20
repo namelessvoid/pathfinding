@@ -14,6 +14,8 @@ class Coordinates
 		void setY(int y);
 		int getY() const;
 
+		bool operator==(const Coordinates& coordinates);
+
 	private:
 		std::pair<int, int> coordinates;
 };
