@@ -12,21 +12,24 @@ namespace astar
 		public:
 			Node(int x, int y, Node* endnode);
 
-			int getX();
-			int getY();
+			int getX() const;
+			int getY() const;
 
 			void setG(int g);
-			int getG();
+			int getG() const;
 
-			int getH();
+			void setH(int h);
+			int getH() const;
 
-			int getF();
+			int getF() const;
 
-			Node* getParent();
+			Node* getParent() const;
 			void setParent(Node* parent);
 
-			std::vector<Node*>& getChildren();
+			const std::vector<Node*>& getChildren() const;
 			void addChild(Node* child);
+
+			bool operator==(const Node& rhs);
 
 		private:
 			Coordinates coordinates;

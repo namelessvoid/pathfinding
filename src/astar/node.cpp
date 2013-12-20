@@ -11,17 +11,17 @@ namespace astar
 		h(-1)
 	{}
 
-	int Node::getX()
+	int Node::getX() const
 	{
 		return coordinates.getX();
 	}
 
-	int Node::getY()
+	int Node::getY() const
 	{
 		return coordinates.getY();
 	}
 
-	int Node::getG()
+	int Node::getG() const
 	{
 		return g;
 	}
@@ -31,19 +31,22 @@ namespace astar
 		this->g = g;
 	}
 
-	int Node::getH()
+	int Node::getH() const
 	{
-		if(h == -1)
-			h = abs(this->getX() - endnode->getX()) + abs(this->getY() - endnode->getY());
 		return h;
 	}
 
-	int Node::getF()
+	void Node::setH(int h)
+	{
+		this->h = h;
+	}
+
+	int Node::getF() const
 	{
 		return getG() + getH();
 	}
 
-	Node* Node::getParent()
+	Node* Node::getParent() const
 	{
 		return parent;
 	}
@@ -53,7 +56,7 @@ namespace astar
 		this->parent = parent;
 	}
 
-	std::vector<Node*>& Node::getChildren()
+	const std::vector<Node*>& Node::getChildren() const
 	{
 		return children;
 	}
@@ -61,5 +64,10 @@ namespace astar
 	void Node::addChild(Node* child)
 	{
 		children.push_back(child);
+	}
+
+	bool Node::operator==(const Node& rhs)
+	{
+		return (getX() == rhs.getX() && getY() == rhs.getY());
 	}
 }
