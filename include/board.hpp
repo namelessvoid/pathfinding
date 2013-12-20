@@ -1,27 +1,30 @@
 #ifndef BOARD_HPP
 #define BOARD_HPP
 
-class Coordinates;
-class Square;
-
-class Board
+namespace pathfinding
 {
-	public:
-		Board(int width, int height);
-		~Board();
+	class Coordinates;
+	class Square;
 
-		Square* getSquare(int x, int y) const;
-		Square* getSquare(const Coordinates& cordinates) const;
+	class Board
+	{
+		public:
+			Board(int width, int height);
+			~Board();
 
-		int getWidth() const;
-		int getHeight() const;
+			Square* getSquare(int x, int y) const;
+			Square* getSquare(const Coordinates& cordinates) const;
 
-	private:
-		int width;
-		int height;
+			int getWidth() const;
+			int getHeight() const;
 
-		Square* squares;
+		private:
+			int width;
+			int height;
 
-};
+			Square* squares;
+
+	};
+}
 
 #endif

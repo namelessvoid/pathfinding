@@ -1,32 +1,35 @@
 #include "coordinates.hpp"
 
-Coordinates::Coordinates(int x, int y)
+namespace pathfinding
 {
-	coordinates.first = x;
-	coordinates.second = y;
-}
+	Coordinates::Coordinates(int x, int y)
+	{
+		coordinates.first = x;
+		coordinates.second = y;
+	}
 
-void Coordinates::setX(int x)
-{
-	coordinates.first = x;
-}
+	void Coordinates::setX(int x)
+	{
+		coordinates.first = x;
+	}
 
-int Coordinates::getX() const
-{
-	return coordinates.first;
-}
+	int Coordinates::getX() const
+	{
+		return coordinates.first;
+	}
 
-void Coordinates::setY(int y)
-{
-	coordinates.second = y;
-}
+	void Coordinates::setY(int y)
+	{
+		coordinates.second = y;
+	}
 
-int Coordinates::getY() const
-{
-	return coordinates.second;
-}
+	int Coordinates::getY() const
+	{
+		return coordinates.second;
+	}
 
-bool Coordinates::operator==(const Coordinates& rhs)
-{
-	return (getX() == rhs.getX() && getY() == rhs.getY());
+	bool Coordinates::operator==(const Coordinates& rhs)
+	{
+		return (getX() == rhs.getX() && getY() == rhs.getY());
+	}
 }

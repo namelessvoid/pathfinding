@@ -3,21 +3,24 @@
 
 #include <utility>
 
-class Coordinates
+namespace pathfinding
 {
-	public:
-		Coordinates(int x = 0, int y = 0);
+	class Coordinates
+	{
+		public:
+			Coordinates(int x = 0, int y = 0);
 
-		void setX(int x);
-		int getX() const;
+			void setX(int x);
+			int getX() const;
 
-		void setY(int y);
-		int getY() const;
+			void setY(int y);
+			int getY() const;
 
-		bool operator==(const Coordinates& coordinates);
+			bool operator==(const Coordinates& coordinates);
 
-	private:
-		std::pair<int, int> coordinates;
-};
+		private:
+			std::pair<int, int> coordinates;
+	};
+}
 
 #endif

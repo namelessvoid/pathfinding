@@ -8,51 +8,54 @@
 #include "board.hpp"
 #include "square.hpp"
 
-BoardRenderer::BoardRenderer(Board& board)
-	:	board(board),
-		emptycolor(81, 149, 81),
-		wallcolor(97, 97, 97),
-		startcolor(76, 76, 187),
-		endcolor(223, 0, 0)
-{}
-
-void BoardRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const
+namespace pathfinding
 {
-	sf::Vector2u targetsize = target.getSize();
-	int boardwidth = board.getWidth();
-	int boardheight = board.getHeight();
+	BoardRenderer::BoardRenderer(Board& board)
+		:	board(board),
+			emptycolor(81, 149, 81),
+			wallcolor(97, 97, 97),
+			startcolor(76, 76, 187),
+			endcolor(223, 0, 0)
+	{}
 
-	float squaredimension = targetsize.y > targetsize.x
-		? targetsize.x / boardwidth : targetsize.y / boardheight;
-
-	sf::RectangleShape shape(sf::Vector2f(squaredimension, squaredimension));
-	shape.setOutlineThickness(1);
-	shape.setOutlineColor(sf::Color::Black);
-
-	for(int x = 0; x < boardwidth; ++x)
+	void BoardRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	{
-		for(int y = 0; y < boardheight; ++y)
+		sf::Vector2u targetsize = target.getSize();
+		int boardwidth = board.getWidth();
+		int boardheight = board.getHeight();
+
+		float squaredimension = targetsize.y > targetsize.x
+			? targetsize.x / boardwidth : targetsize.y / boardheight;
+
+		sf::RectangleShape shape(sf::Vector2f(squaredimension, squaredimension));
+		shape.setOutlineThickness(1);
+		shape.setOutlineColor(sf::Color::Black);
+
+		for(int x = 0; x < boardwidth; ++x)
 		{
-			shape.setPosition(x * squaredimension, y * squaredimension);
-
-			switch(board.getSquare(x, y)->getContent())
+			for(int y = 0; y < boardheight; ++y)
 			{
-				case Square::EC_WALL:
-					shape.setFillColor(wallcolor);
-					break;
-				case Square::EC_START:
-					shape.setFillColor(startcolor);
-					break;
-				case Square::EC_END:
-					shape.setFillColor(endcolor);
-					break;
-				case Square::EC_EMPTY: // fall through
-				default:
-					shape.setFillColor(emptycolor);
-					break;
-			}
+				shape.setPosition(x * squaredimension, y * squaredimension);
 
-			target.draw(shape);
+				switch(board.getSquare(x, y)->getContent())
+				{
+					case Square::EC_WALL:
+						shape.setFillColor(wallcolor);
+						break;
+					case Square::EC_START:
+						shape.setFillColor(startcolor);
+						break;
+					case Square::EC_END:
+						shape.setFillColor(endcolor);
+						break;
+					case Square::EC_EMPTY: // fall through
+					default:
+						shape.setFillColor(emptycolor);
+						break;
+				}
+
+				target.draw(shape);
+			}
 		}
 	}
 }
