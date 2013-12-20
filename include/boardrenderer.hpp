@@ -19,6 +19,8 @@ namespace pathfinding
 			void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 		private:
+			void drawBoard(float squaredimension, sf::RenderTarget& target, sf::RenderStates states) const;
+
 			Board& board;
 
 			Path* path;

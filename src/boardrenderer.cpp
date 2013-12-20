@@ -34,6 +34,14 @@ namespace pathfinding
 		float squaredimension = targetsize.y > targetsize.x
 			? targetsize.x / boardwidth : targetsize.y / boardheight;
 
+		drawBoard(squaredimension, target, states);
+	}
+
+	void BoardRenderer::drawBoard(float squaredimension, sf::RenderTarget& target, sf::RenderStates states) const
+	{
+		int boardwidth = board.getWidth();
+		int boardheight = board.getHeight();
+
 		sf::RectangleShape shape(sf::Vector2f(squaredimension, squaredimension));
 		shape.setOutlineThickness(1);
 		shape.setOutlineColor(sf::Color::Black);
