@@ -10,20 +10,20 @@
 
 namespace astar
 {
-	class AStar : public AlgorithmInterface
+	class AStar : public pathfinding::AlgorithmInterface
 	{
 		public:
 			AStar();
 			~AStar();
 
-			void setBoard(Board* board);
+			void setBoard(pathfinding::Board* board);
 			void setStart(int x, int y);
 			void setEnd(int x, int y);
 
-			Path* getPath();
+			pathfinding::Path* getPath();
 
 		private:
-			Board* board;
+			pathfinding::Board* board;
 
 			Node* start;
 			Node* end;

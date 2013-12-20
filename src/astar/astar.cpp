@@ -8,7 +8,7 @@ namespace astar
 		end(0)
 	{}
 
-	void AStar::setBoard(Board* board)
+	void AStar::setBoard(pathfinding::Board* board)
 	{
 		this->board = board;
 	}
@@ -29,9 +29,9 @@ namespace astar
 	}
 
 
-	Path* AStar::getPath()
+	pathfinding::Path* AStar::getPath()
 	{
-		Path* path = new Path();
+		pathfinding::Path* path = new pathfinding::Path();
 		path->addSquare(board->getSquare(start->getX(), start->getY()));
 		path->addSquare(board->getSquare(end->getX(), end->getY()));
 		return 0;
