@@ -5,21 +5,20 @@
 namespace astar
 {
 	Node::Node(int x, int y, Node* endnode)
-	 :	x(x),
-		y(y),
-		endnode(endnode),
+	 :	coordinates(x, y),
+	 	endnode(endnode),
 		g(0),
 		h(-1)
 	{}
 
 	int Node::getX()
 	{
-		return x;
+		return coordinates.getX();
 	}
 
 	int Node::getY()
 	{
-		return y;
+		return coordinates.getY();
 	}
 
 	int Node::getG()

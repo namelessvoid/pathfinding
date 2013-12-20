@@ -3,6 +3,8 @@
 
 #include <vector>
 
+#include "coordinates.hpp"
+
 namespace astar
 {
 	class Node
@@ -27,8 +29,7 @@ namespace astar
 			void addChild(Node* child);
 
 		private:
-			const int x;
-			const int y;
+			Coordinates coordinates;
 
 			int g;
 			int h;
