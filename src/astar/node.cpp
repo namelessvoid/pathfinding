@@ -1,13 +1,14 @@
 #include "astar/node.hpp"
 
 #include <stdlib.h>
+#include <climits>
 
 namespace astar
 {
 	Node::Node(int x, int y)
 	 : 	pathfinding::Node(x, y),
-		g(0),
-		h(-1)
+		g(INT_MAX),
+		h(INT_MAX)
 	{}
 
 	int Node::getG() const
