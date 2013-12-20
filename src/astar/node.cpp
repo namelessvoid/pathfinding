@@ -5,7 +5,7 @@
 namespace astar
 {
 	Node::Node(int x, int y, Node* endnode)
-	 :	pathfinding::Node(x, y),
+	 : 	pathfinding::Node(x, y),
 	 	endnode(endnode),
 		g(0),
 		h(-1)
@@ -54,10 +54,5 @@ namespace astar
 	void Node::addChild(Node* child)
 	{
 		children.push_back(child);
-	}
-
-	bool Node::operator==(const Node& rhs)
-	{
-		return (getX() == rhs.getX() && getY() == rhs.getY());
 	}
 }

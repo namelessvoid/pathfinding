@@ -26,8 +26,6 @@ namespace astar
 			const std::vector<Node*>& getChildren() const;
 			void addChild(Node* child);
 
-			bool operator==(const Node& rhs);
-
 		private:
 			int g;
 			int h;
