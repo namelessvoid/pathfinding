@@ -34,6 +34,6 @@ namespace astar
 		pathfinding::Path* path = new pathfinding::Path();
 		path->addNode(start);
 		path->addNode(end);
-		return 0;
+		return path;
 	}
 }
