@@ -7,14 +7,14 @@
 
 int main(int arg, char* argv[])
 {
-	Board board(10, 10);
+	pathfinding::Board board(10, 10);
 
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Pathfinding Visualizer", sf::Style::Titlebar | sf::Style::Close);
 	window.setVerticalSyncEnabled(true);
 
 	window.setView(sf::View(sf::FloatRect(0, 0, 800, 600)));
 
-	BoardRenderer boardrenderer(board);
+	pathfinding::BoardRenderer boardrenderer(board);
 
 	while (window.isOpen())
 	{

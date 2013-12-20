@@ -6,22 +6,25 @@
 // #include <SFML/Graphics/RenderTarget.hpp>
 // #include <SFML/Graphics/RenderStates.hpp>
 
-class Board;
-
-class BoardRenderer : public sf::Drawable
+namespace pathfinding
 {
-	public:
-		BoardRenderer(Board& board);
+	class Board;
 
-		void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+	class BoardRenderer : public sf::Drawable
+	{
+		public:
+			BoardRenderer(Board& board);
 
-	private:
-		Board& board;
+			void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-		sf::Color emptycolor;
-		sf::Color wallcolor;
-		sf::Color startcolor;
-		sf::Color endcolor;
-};
+		private:
+			Board& board;
+
+			sf::Color emptycolor;
+			sf::Color wallcolor;
+			sf::Color startcolor;
+			sf::Color endcolor;
+	};
+}
 
 #endif

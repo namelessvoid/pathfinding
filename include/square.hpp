@@ -1,24 +1,26 @@
 #ifndef SQUARE_HPP
 #define SQUARE_HPP
 
-class Square
+namespace pathfinding
 {
-	public:
-		enum Content
-		{
-			EC_EMPTY,
-			EC_WALL,
-			EC_START,
-			EC_END
-		};
+	class Square
+	{
+		public:
+			enum Content
+			{
+				EC_EMPTY,
+				EC_WALL,
+				EC_START,
+				EC_END
+			};
 
-		Square();
+			Square();
 
-		void setContent(Content content);
-		Content getContent() const;
+			void setContent(Content content);
+			Content getContent() const;
 
-	private:
-		Content content;
-};
-
+		private:
+			Content content;
+	};
+}
 #endif

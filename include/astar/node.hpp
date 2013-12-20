@@ -3,17 +3,14 @@
 
 #include <vector>
 
-#include "coordinates.hpp"
+#include "../node.hpp"
 
 namespace astar
 {
-	class Node
+	class Node : public pathfinding::Node
 	{
 		public:
 			Node(int x, int y, Node* endnode);
-
-			int getX() const;
-			int getY() const;
 
 			void setG(int g);
 			int getG() const;
@@ -29,11 +26,7 @@ namespace astar
 			const std::vector<Node*>& getChildren() const;
 			void addChild(Node* child);
 
-			bool operator==(const Node& rhs);
-
 		private:
-			Coordinates coordinates;
-
 			int g;
 			int h;
 

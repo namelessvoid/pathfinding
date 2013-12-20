@@ -1,15 +1,18 @@
 #include "square.hpp"
 
-Square::Square()
-	:	content(EC_EMPTY)
-{}
-
-void Square::setContent(Square::Content content)
+namespace pathfinding
 {
-	this->content = content;
-}
+	Square::Square()
+		:	content(EC_EMPTY)
+	{}
 
-Square::Content Square::getContent() const
-{
-	return content;
+	void Square::setContent(Square::Content content)
+	{
+		this->content = content;
+	}
+
+	Square::Content Square::getContent() const
+	{
+		return content;
+	}
 }

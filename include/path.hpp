@@ -3,16 +3,19 @@
 
 #include <vector>
 
-#include "square.hpp"
+#include "node.hpp"
 
-class Path
+namespace pathfinding
 {
-	public:
-		std::vector<Square*>& get();
-		void addSquare(Square* square);
+	class Path
+	{
+		public:
+			std::vector<Node*>& get();
+			void addNode(Node* node);
 
-	private:
-		std::vector<Square*> path;
-};
+		private:
+			std::vector<Node*> path;
+	};
+}
 
 #endif

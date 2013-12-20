@@ -1,11 +1,14 @@
 #include "path.hpp"
 
-std::vector<Square*>& Path::get()
+namespace pathfinding
 {
-	return path;
-}
+	std::vector<Node*>& Path::get()
+	{
+		return path;
+	}
 
-void Path::addSquare(Square* square)
-{
-	path.push_back(square);
+	void Path::addNode(Node* node)
+	{
+		path.push_back(node);
+	}
 }

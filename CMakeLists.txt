@@ -12,10 +12,12 @@ endif(SFML_FOUND)
 
 set(SOURCE
 	src/coordinates.cpp
+	src/node.cpp
 	src/square.cpp
 	src/board.cpp
 	src/path.cpp
 	src/boardrenderer.cpp
+	src/astar/astar.cpp
 	src/astar/node.cpp
 )
 
