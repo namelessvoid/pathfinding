@@ -16,6 +16,7 @@ set(SOURCE
 	src/board.cpp
 	src/path.cpp
 	src/boardrenderer.cpp
+	src/astar/astar.cpp
 	src/astar/node.cpp
 )
 
