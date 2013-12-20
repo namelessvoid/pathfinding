@@ -114,7 +114,6 @@ namespace pathfinding
 
 		specialnode = nodes.back();
 		shape.setFillColor(endcolor);
-		std::cout << specialnode << std::endl;
 		shape.setPosition(
 			squaredimension * specialnode->getX() + 0.5 * squaredimension,
 			squaredimension * specialnode->getY() + 0.5 * squaredimension
