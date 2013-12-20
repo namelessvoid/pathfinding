@@ -4,6 +4,9 @@
 
 #include "board.hpp"
 #include "boardrenderer.hpp"
+#include "algorithminterface.hpp"
+
+#include "astar/astar.hpp"
 
 int main(int arg, char* argv[])
 {
@@ -15,6 +18,13 @@ int main(int arg, char* argv[])
 	window.setView(sf::View(sf::FloatRect(0, 0, 800, 600)));
 
 	pathfinding::BoardRenderer boardrenderer(board);
+
+	pathfinding::AlgorithmInterface* algorithm = new astar::AStar();
+	algorithm->setStart(0, 0);
+	algorithm->setEnd(9, 9);
+	pathfinding::Path* path = algorithm->getPath();
+
+	boardrenderer.setPath(path);
 
 	while (window.isOpen())
 	{
