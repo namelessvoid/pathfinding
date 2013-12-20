@@ -12,6 +12,7 @@ endif(SFML_FOUND)
 
 set(SOURCE
 	src/coordinates.cpp
+	src/node.cpp
 	src/square.cpp
 	src/board.cpp
 	src/path.cpp
