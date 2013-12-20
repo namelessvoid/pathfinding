@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/CircleShape.hpp>
 
 #include <iostream>
 
@@ -16,8 +17,9 @@ namespace pathfinding
 			path(0),
 			emptycolor(81, 149, 81),
 			wallcolor(97, 97, 97),
-			startcolor(76, 76, 187),
-			endcolor(223, 0, 0)
+			startcolor(70, 210, 70),
+			endcolor(223, 0, 0),
+			nodecolor(76, 76, 187)
 	{}
 
 	void BoardRenderer::setPath(Path* path)
@@ -35,6 +37,7 @@ namespace pathfinding
 			? targetsize.x / boardwidth : targetsize.y / boardheight;
 
 		drawBoard(squaredimension, target, states);
+		drawPath(squaredimension, target, states);
 	}
 
 	void BoardRenderer::drawBoard(float squaredimension, sf::RenderTarget& target, sf::RenderStates states) const
@@ -72,5 +75,50 @@ namespace pathfinding
 				target.draw(shape);
 			}
 		}
+	}
+
+	void BoardRenderer::drawPath(float squaredimension, sf::RenderTarget& target, sf::RenderStates states) const
+	{
+		if(!path)
+			return;
+
+		float scale = 0.2;
+
+		sf::CircleShape shape(squaredimension);
+		shape.setOrigin(squaredimension, squaredimension);
+		shape.scale(scale, scale);
+
+		shape.setOutlineColor(sf::Color::Black);
+		shape.setOutlineThickness(5);
+		shape.setFillColor(nodecolor);
+
+		auto nodes = path->get();
+		for(auto node : nodes)
+		{
+			shape.setPosition(
+				squaredimension * node->getX() + 0.5 * squaredimension,
+				squaredimension * node->getY() + 0.5 * squaredimension
+			);
+
+			target.draw(shape);
+		}
+
+		// Draw start / end node
+		auto specialnode = *nodes.begin();
+		shape.setFillColor(startcolor);
+		shape.setPosition(
+			squaredimension * specialnode->getX() + 0.5 * squaredimension,
+			squaredimension * specialnode->getY() + 0.5 * squaredimension
+		);
+		target.draw(shape);
+
+		specialnode = nodes.back();
+		shape.setFillColor(endcolor);
+		std::cout << specialnode << std::endl;
+		shape.setPosition(
+			squaredimension * specialnode->getX() + 0.5 * squaredimension,
+			squaredimension * specialnode->getY() + 0.5 * squaredimension
+		);
+		target.draw(shape);
 	}
 }

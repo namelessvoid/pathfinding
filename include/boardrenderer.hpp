@@ -20,6 +20,7 @@ namespace pathfinding
 
 		private:
 			void drawBoard(float squaredimension, sf::RenderTarget& target, sf::RenderStates states) const;
+			void drawPath(float squaredimension, sf::RenderTarget& target, sf::RenderStates states) const;
 
 			Board& board;
 
@@ -29,6 +30,7 @@ namespace pathfinding
 			sf::Color wallcolor;
 			sf::Color startcolor;
 			sf::Color endcolor;
+			sf::Color nodecolor;
 	};
 }
 
