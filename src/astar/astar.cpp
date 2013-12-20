@@ -18,14 +18,14 @@ namespace astar
 		if(start) {
 			delete start;
 		}
-		start = new Node(x, y, end);
+		start = new Node(x, y);
 	}
 
 	void AStar::setEnd(int x, int y)
 	{
 		if(end)
 			delete end;
-		end = new Node(x, y, end);
+		end = new Node(x, y);
 	}
 
 

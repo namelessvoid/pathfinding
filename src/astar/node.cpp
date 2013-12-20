@@ -4,9 +4,8 @@
 
 namespace astar
 {
-	Node::Node(int x, int y, Node* endnode)
+	Node::Node(int x, int y)
 	 : 	pathfinding::Node(x, y),
-	 	endnode(endnode),
 		g(0),
 		h(-1)
 	{}
