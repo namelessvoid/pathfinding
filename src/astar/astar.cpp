@@ -32,8 +32,8 @@ namespace astar
 	pathfinding::Path* AStar::getPath()
 	{
 		pathfinding::Path* path = new pathfinding::Path();
-		path->addSquare(board->getSquare(start->getX(), start->getY()));
-		path->addSquare(board->getSquare(end->getX(), end->getY()));
+		path->addNode(start);
+		path->addNode(end);
 		return 0;
 	}
 }
