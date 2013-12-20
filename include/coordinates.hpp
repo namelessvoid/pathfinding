@@ -1,0 +1,21 @@
+#ifndef COORDINATES_HPP
+#define COORDINATES_HPP
+
+#include <utility>
+
+class Coordinates
+{
+	public:
+		Coordinates(int x = 0, int y = 0);
+
+		void setX(int x);
+		int getX() const;
+
+		void setY(int y);
+		int getY() const;
+
+	private:
+		std::pair<int, int> coordinates;
+};
+
+#endif
