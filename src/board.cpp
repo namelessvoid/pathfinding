@@ -1,5 +1,6 @@
 #include "board.hpp"
 
+#include "coordinates.hpp"
 #include "square.hpp"
 
 Board::Board(int width, int height)
@@ -14,12 +15,17 @@ Board::~Board()
 	delete[] squares;
 }
 
-Square* Board::getSquare(int x, int y)
+Square* Board::getSquare(int x, int y) const
 {
 	if(x < 0 || x > width || y < 0 || y > height)
 		return 0;
 
 	return &squares[y * height + x];
+}
+
+Square* Board::getSquare(const Coordinates& coordinates) const
+{
+	return getSquare(coordinates.getX(), coordinates.getY());
 }
 
 int Board::getWidth() const
