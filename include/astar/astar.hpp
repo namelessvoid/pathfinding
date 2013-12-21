@@ -1,7 +1,6 @@
 #ifndef ASTAR_HPP
 #define ASTAR_HPP
 
-#include <vector>
 #include <unordered_set>
 
 #include "algorithminterface.hpp"
