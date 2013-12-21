@@ -65,7 +65,7 @@ namespace astar
 				pathfinding::Coordinates tmpcoords = coordinates + directions[i];
 				pathfinding::Square* square = board->getSquare(tmpcoords.getX(), tmpcoords.getY());
 
-				if(square
+				if(square != 0
 				   // Is walkable?
 				   && square->getContent() != pathfinding::Square::Content::EC_WALL
 				   // Not on closedlist?
@@ -104,6 +104,7 @@ namespace astar
 		{
 			path->prependNode(iter);
 		}
+		path->prependNode(start);
 		return path;
 	}
 
