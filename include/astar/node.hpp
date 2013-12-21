@@ -20,9 +20,6 @@ namespace astar
 
 			int getF() const;
 
-			Node* getParent() const;
-			void setParent(Node* parent);
-
 			const std::vector<Node*>& getChildren() const;
 			void addChild(Node* child);
 
@@ -30,7 +27,6 @@ namespace astar
 			int g;
 			int h;
 
-			Node* parent;
 			std::vector<Node*> children;
 	};
 }

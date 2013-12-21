@@ -36,16 +36,6 @@ namespace astar
 		return getG() + getH();
 	}
 
-	Node* Node::getParent() const
-	{
-		return parent;
-	}
-
-	void Node::setParent(Node* parent)
-	{
-		this->parent = parent;
-	}
-
 	const std::vector<Node*>& Node::getChildren() const
 	{
 		return children;

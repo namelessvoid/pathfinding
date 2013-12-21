@@ -14,10 +14,14 @@ namespace pathfinding
 			int getY() const;
 			const Coordinates& getCoordinates() const;
 
+			Node* getParent() const;
+			void setParent(Node* parent);
+
 			bool operator==(const Node& rhs);
 
 		private:
 			Coordinates coordinates;
+			Node* parent;
 	};
 }
 
