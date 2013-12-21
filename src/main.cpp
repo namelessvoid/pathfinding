@@ -22,6 +22,7 @@ int main(int arg, char* argv[])
 	pathfinding::AlgorithmInterface* algorithm = new astar::AStar();
 	algorithm->setStart(0, 0);
 	algorithm->setEnd(9, 9);
+	algorithm->setBoard(&board);
 	pathfinding::Path* path = algorithm->getPath();
 
 	boardrenderer.setPath(path);
