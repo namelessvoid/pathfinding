@@ -98,6 +98,7 @@ namespace pathfinding
 
 		sf::Text text;
 		text.setFont(font);
+		text.setCharacterSize(squaredimension);
 		text.setColor(sf::Color::White);
 
 		auto nodes = path->get();
@@ -108,7 +109,7 @@ namespace pathfinding
 				squaredimension * node->getX() + 0.5 * squaredimension,
 				squaredimension * node->getY() + 0.5 * squaredimension
 			);
-			text.setPosition(shape.getPosition());
+			text.setPosition(squaredimension * node->getX(), squaredimension * node->getY());
 			text.setString(intToString(counter));
 
 			target.draw(shape);
