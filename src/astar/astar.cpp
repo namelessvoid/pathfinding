@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <functional>
 
 #include "square.hpp"
 
@@ -71,11 +72,9 @@ namespace astar
 				   // Not on closedlist?
 				   && !closedlistContainsCoords(tmpcoords))
 				{
-					std::cout << "iterating adjacent square...\n";
 					newnode = new Node(tmpcoords.getX(), tmpcoords.getY());
 					if(openListFindCoords(tmpcoords) == 0)
 					{
-						std::cout << "new node...\n";
 						newnode->setG(currentnode->getG() + 1);
 						newnode->setH(calcH(newnode));
 
@@ -84,7 +83,6 @@ namespace astar
 					}
 					else
 					{
-						std::cout << "old node\n";
 						delete newnode;
 						newnode = openListFindCoords(tmpcoords);
 						if(newnode->getG() > (currentnode->getG() + 1))
@@ -99,7 +97,6 @@ namespace astar
 
 		// Create Path.
 		pathfinding::Path* path = new pathfinding::Path();
-		std::cout << "parent of end node: " << end->getParent() << std::endl;
 		for(pathfinding::Node* iter = closedlist.back(); iter->getParent() != 0; iter = iter->getParent())
 		{
 			path->prependNode(iter);

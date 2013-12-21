@@ -21,11 +21,9 @@ namespace pathfinding
 
 	Square* Board::getSquare(int x, int y) const
 	{
-		std::cout << "Board::getSquare( " << x << ", " << y << ")" << std::endl;
 		if(x < 0 || x >= width || y < 0 || y >= height)
 			return 0;
 
-		std::cout << "Borad: Square found :)\n";
 		return &squares[y * height + x];
 	}
 
