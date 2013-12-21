@@ -17,6 +17,7 @@ namespace pathfinding
 			int getY() const;
 
 			bool operator==(const Coordinates& coordinates);
+			Coordinates operator+(const Coordinates& rhs) const;
 
 		private:
 			std::pair<int, int> coordinates;
