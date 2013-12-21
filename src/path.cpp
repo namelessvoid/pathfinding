@@ -11,4 +11,9 @@ namespace pathfinding
 	{
 		path.push_back(node);
 	}
+
+	void Path::prependNode(Node* node)
+	{
+		path.insert(path.begin(), node);
+	}
 }
