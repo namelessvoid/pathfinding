@@ -99,9 +99,10 @@ namespace astar
 
 		// Create Path.
 		pathfinding::Path* path = new pathfinding::Path();
-		for(auto node : closedlist)
+		std::cout << "parent of end node: " << end->getParent() << std::endl;
+		for(pathfinding::Node* iter = closedlist.back(); iter->getParent() != 0; iter = iter->getParent())
 		{
-			path->addNode(node);
+			path->prependNode(iter);
 		}
 		return path;
 	}
