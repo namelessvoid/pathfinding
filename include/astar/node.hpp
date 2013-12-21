@@ -10,7 +10,7 @@ namespace astar
 	class Node : public pathfinding::Node
 	{
 		public:
-			Node(int x, int y, Node* endnode);
+			Node(int x = 0, int y = 0);
 
 			void setG(int g);
 			int getG() const;
@@ -20,9 +20,6 @@ namespace astar
 
 			int getF() const;
 
-			Node* getParent() const;
-			void setParent(Node* parent);
-
 			const std::vector<Node*>& getChildren() const;
 			void addChild(Node* child);
 
@@ -30,10 +27,7 @@ namespace astar
 			int g;
 			int h;
 
-			Node* parent;
 			std::vector<Node*> children;
-
-			Node* endnode;
 	};
 }
 

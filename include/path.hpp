@@ -12,6 +12,7 @@ namespace pathfinding
 		public:
 			std::vector<Node*>& get();
 			void addNode(Node* node);
+			void prependNode(Node* node);
 
 		private:
 			std::vector<Node*> path;

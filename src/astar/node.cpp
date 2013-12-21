@@ -1,14 +1,14 @@
 #include "astar/node.hpp"
 
 #include <stdlib.h>
+#include <climits>
 
 namespace astar
 {
-	Node::Node(int x, int y, Node* endnode)
+	Node::Node(int x, int y)
 	 : 	pathfinding::Node(x, y),
-	 	endnode(endnode),
-		g(0),
-		h(-1)
+		g(INT_MAX),
+		h(INT_MAX)
 	{}
 
 	int Node::getG() const
@@ -34,16 +34,6 @@ namespace astar
 	int Node::getF() const
 	{
 		return getG() + getH();
-	}
-
-	Node* Node::getParent() const
-	{
-		return parent;
-	}
-
-	void Node::setParent(Node* parent)
-	{
-		this->parent = parent;
 	}
 
 	const std::vector<Node*>& Node::getChildren() const

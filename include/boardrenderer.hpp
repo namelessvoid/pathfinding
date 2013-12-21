@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Color.hpp>
+#include <SFML/Graphics/Font.hpp>
 
 namespace pathfinding
 {
@@ -31,6 +32,8 @@ namespace pathfinding
 			sf::Color startcolor;
 			sf::Color endcolor;
 			sf::Color nodecolor;
+
+			sf::Font font;
 	};
 }
 

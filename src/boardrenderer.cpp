@@ -3,9 +3,11 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
+#include <SFML/Graphics/Text.hpp>
 
 #include <iostream>
 
+#include "tostring.hpp"
 #include "board.hpp"
 #include "square.hpp"
 #include "path.hpp"
@@ -20,7 +22,9 @@ namespace pathfinding
 			startcolor(70, 210, 70),
 			endcolor(223, 0, 0),
 			nodecolor(76, 76, 187)
-	{}
+	{
+		font.loadFromFile("Knigqst.ttf");
+	}
 
 	void BoardRenderer::setPath(Path* path)
 	{
@@ -92,15 +96,26 @@ namespace pathfinding
 		shape.setOutlineThickness(5);
 		shape.setFillColor(nodecolor);
 
+		sf::Text text;
+		text.setFont(font);
+		text.setCharacterSize(squaredimension);
+		text.setColor(sf::Color::White);
+
 		auto nodes = path->get();
+		int counter = 0;
 		for(auto node : nodes)
 		{
 			shape.setPosition(
 				squaredimension * node->getX() + 0.5 * squaredimension,
 				squaredimension * node->getY() + 0.5 * squaredimension
 			);
+			text.setPosition(squaredimension * node->getX(), squaredimension * node->getY());
+			text.setString(intToString(counter));
 
 			target.draw(shape);
+			target.draw(text);
+
+			counter++;
 		}
 
 		// Draw start / end node
@@ -114,7 +129,6 @@ namespace pathfinding
 
 		specialnode = nodes.back();
 		shape.setFillColor(endcolor);
-		std::cout << specialnode << std::endl;
 		shape.setPosition(
 			squaredimension * specialnode->getX() + 0.5 * squaredimension,
 			squaredimension * specialnode->getY() + 0.5 * squaredimension
