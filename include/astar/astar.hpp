@@ -23,6 +23,13 @@ namespace astar
 			pathfinding::Path* getPath();
 
 		private:
+			bool closedlistContains(Node* node);
+			bool closedlistContainsCoords(const pathfinding::Coordinates& coordinates);
+			bool openlistContainsCoords(const pathfinding::Coordinates& coordinates);
+			Node* openListFindCoords(const pathfinding::Coordinates& coordinates);
+			Node* findNextCurrentNode();
+			int calcH(Node* node);
+
 			pathfinding::Board* board;
 
 			Node* start;
@@ -30,6 +37,8 @@ namespace astar
 
 			std::unordered_set<Node*> openlist;
 			std::vector<Node*> closedlist;
+
+			pathfinding::Coordinates directions[4];
 	};
 }
 
