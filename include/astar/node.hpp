@@ -10,7 +10,7 @@ namespace astar
 	class Node : public pathfinding::Node
 	{
 		public:
-			Node(int x, int y);
+			Node(int x = 0, int y = 0);
 
 			void setG(int g);
 			int getG() const;
