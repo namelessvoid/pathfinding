@@ -1,7 +1,7 @@
 #ifndef ASTAR_HPP
 #define ASTAR_HPP
 
-#include <unordered_set>
+#include <set>
 
 #include "algorithminterface.hpp"
 #include "board.hpp"
@@ -34,7 +34,7 @@ namespace astar
 			Node* start;
 			Node* end;
 
-			std::unordered_set<Node*> openlist;
+			std::set<Node*, Node::PtrComp> openlist;
 			std::vector<Node*> closedlist;
 
 			pathfinding::Coordinates directions[4];
