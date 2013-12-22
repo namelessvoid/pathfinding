@@ -45,4 +45,9 @@ namespace astar
 	{
 		children.push_back(child);
 	}
+
+	bool Node::PtrComp::operator()(const Node* lhs, const Node* rhs) const
+	{
+		return (lhs->getX() > rhs->getX() || lhs->getY() > rhs->getY());
+	}
 }

@@ -23,6 +23,11 @@ namespace astar
 			const std::vector<Node*>& getChildren() const;
 			void addChild(Node* child);
 
+			struct PtrComp
+			{
+				bool operator()(const Node* lhs, const Node* rhs) const;
+			};
+
 		private:
 			int g;
 			int h;
