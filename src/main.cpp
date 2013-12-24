@@ -51,6 +51,7 @@ int main(int arg, char* argv[])
 	pathfinding::Path* path = algorithm->getPath();
 
 	boardrenderer.setPath(path);
+	boardrenderer.resize(800, 600);
 
 	while (window.isOpen())
 	{
@@ -67,6 +68,7 @@ int main(int arg, char* argv[])
 	            // update the view to the new size of the window
 	            sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
 	            window.setView(sf::View(visibleArea));
+	            boardrenderer.resize(event.size);
 	        }
 	    }
 

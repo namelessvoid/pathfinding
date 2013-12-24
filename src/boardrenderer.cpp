@@ -15,7 +15,8 @@
 namespace pathfinding
 {
 	BoardRenderer::BoardRenderer(Board& board)
-		:	board(board),
+		:	squaredimension(0),
+			board(board),
 			path(0),
 			emptycolor(81, 149, 81),
 			wallcolor(97, 97, 97),
@@ -31,15 +32,22 @@ namespace pathfinding
 		this->path = path;
 	}
 
-	void BoardRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const
+	void BoardRenderer::resize(float width, float height)
 	{
-		sf::Vector2u targetsize = target.getSize();
 		int boardwidth = board.getWidth();
 		int boardheight = board.getHeight();
 
-		float squaredimension = targetsize.y > targetsize.x
-			? targetsize.x / boardwidth : targetsize.y / boardheight;
+		squaredimension = height > width
+			? width / boardwidth : height / boardheight;
+	}
 
+	void BoardRenderer::resize(const sf::Event::SizeEvent& event)
+	{
+		resize(event.width, event.height);
+	}
+
+	void BoardRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const
+	{
 		drawBoard(squaredimension, target, states);
 		drawPath(squaredimension, target, states);
 	}

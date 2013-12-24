@@ -4,6 +4,7 @@
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/Graphics/Font.hpp>
+#include <SFML/Window/Event.hpp>
 
 namespace pathfinding
 {
@@ -17,11 +18,15 @@ namespace pathfinding
 
 			void setPath(Path* path);
 
+			void resize(float widht, float height);
+			void resize(const sf::Event::SizeEvent& event);
 			void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 		private:
 			void drawBoard(float squaredimension, sf::RenderTarget& target, sf::RenderStates states) const;
 			void drawPath(float squaredimension, sf::RenderTarget& target, sf::RenderStates states) const;
+
+			float squaredimension;
 
 			Board& board;
 
