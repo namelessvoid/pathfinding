@@ -71,9 +71,11 @@ int main(int arg, char* argv[])
 	            boardrenderer.resize(event.size);
 	        }
 
-	        if(boardrenderer.handleEvent(event))
+	        if(boardrenderer.handleEvent(event) == true)
 	        {
-	        	// Delete path and create new one.
+	        	delete path;
+	        	path = algorithm->getPath();
+	        	boardrenderer.setPath(path);
 	        }
 	    }
 
