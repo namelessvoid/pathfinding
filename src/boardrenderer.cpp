@@ -32,6 +32,30 @@ namespace pathfinding
 		this->path = path;
 	}
 
+	bool BoardRenderer::handleEvent(const sf::Event& event)
+	{
+		if(event.type == sf::Event::MouseButtonReleased)
+		{
+			std::cout << "mouse released at " << event.mouseButton.x << "/" << event.mouseButton.y << std::endl;
+
+			pathfinding::Coordinates cursorpos;
+			cursorpos.setX(floor( ((float)event.mouseButton.x) / squaredimension ));
+			cursorpos.setY(floor( ((float)event.mouseButton.y) / squaredimension ));
+			std::cout << "clicked sqare at  " << cursorpos.getX() << "/" << cursorpos.getY() << std::endl;
+
+			pathfinding::Square* square = board.getSquare(cursorpos);
+			if(square != 0)
+			{
+				if(square->getContent() == Square::Content::EC_EMPTY)
+					square->setContent(Square::Content::EC_WALL);
+				else
+					square->setContent(Square::Content::EC_EMPTY);
+				return true;
+			}
+		}
+		return false;
+	}
+
 	void BoardRenderer::resize(float width, float height)
 	{
 		int boardwidth = board.getWidth();

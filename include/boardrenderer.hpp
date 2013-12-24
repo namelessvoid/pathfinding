@@ -18,6 +18,8 @@ namespace pathfinding
 
 			void setPath(Path* path);
 
+			bool handleEvent(const sf::Event &event);
+
 			void resize(float widht, float height);
 			void resize(const sf::Event::SizeEvent& event);
 			void draw(sf::RenderTarget& target, sf::RenderStates states) const;

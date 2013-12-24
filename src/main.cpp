@@ -70,6 +70,11 @@ int main(int arg, char* argv[])
 	            window.setView(sf::View(visibleArea));
 	            boardrenderer.resize(event.size);
 	        }
+
+	        if(boardrenderer.handleEvent(event))
+	        {
+	        	// Delete path and create new one.
+	        }
 	    }
 
 	    // Rendering
