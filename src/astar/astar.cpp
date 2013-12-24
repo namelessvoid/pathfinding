@@ -46,6 +46,9 @@ namespace astar
 		if(!start && !end && !board)
 			return 0;
 
+		openlist.clear();
+		closedlist.clear();
+
 		Node* newnode = 0;
 		Node* currentnode = 0;
 		openlist.insert(start);
