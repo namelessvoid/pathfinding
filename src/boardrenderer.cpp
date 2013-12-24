@@ -15,7 +15,8 @@
 namespace pathfinding
 {
 	BoardRenderer::BoardRenderer(Board& board)
-		:	board(board),
+		:	squaredimension(0),
+			board(board),
 			path(0),
 			emptycolor(81, 149, 81),
 			wallcolor(97, 97, 97),
@@ -31,15 +32,46 @@ namespace pathfinding
 		this->path = path;
 	}
 
-	void BoardRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const
+	bool BoardRenderer::handleEvent(const sf::Event& event)
 	{
-		sf::Vector2u targetsize = target.getSize();
+		if(event.type == sf::Event::MouseButtonReleased)
+		{
+			std::cout << "mouse released at " << event.mouseButton.x << "/" << event.mouseButton.y << std::endl;
+
+			pathfinding::Coordinates cursorpos;
+			cursorpos.setX(floor( ((float)event.mouseButton.x) / squaredimension ));
+			cursorpos.setY(floor( ((float)event.mouseButton.y) / squaredimension ));
+			std::cout << "clicked sqare at  " << cursorpos.getX() << "/" << cursorpos.getY() << std::endl;
+
+			pathfinding::Square* square = board.getSquare(cursorpos);
+			if(square != 0)
+			{
+				if(square->getContent() == Square::Content::EC_EMPTY)
+					square->setContent(Square::Content::EC_WALL);
+				else
+					square->setContent(Square::Content::EC_EMPTY);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	void BoardRenderer::resize(float width, float height)
+	{
 		int boardwidth = board.getWidth();
 		int boardheight = board.getHeight();
 
-		float squaredimension = targetsize.y > targetsize.x
-			? targetsize.x / boardwidth : targetsize.y / boardheight;
+		squaredimension = height > width
+			? width / boardwidth : height / boardheight;
+	}
 
+	void BoardRenderer::resize(const sf::Event::SizeEvent& event)
+	{
+		resize(event.width, event.height);
+	}
+
+	void BoardRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const
+	{
 		drawBoard(squaredimension, target, states);
 		drawPath(squaredimension, target, states);
 	}
