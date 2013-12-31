@@ -43,7 +43,7 @@ namespace astar
 
 	pathfinding::Path* AStar::getPath()
 	{
-		if(!start && !end && !board)
+		if(!start || !end || !board)
 			return 0;
 
 		openlist.clear();
